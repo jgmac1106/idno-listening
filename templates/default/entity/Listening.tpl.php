@@ -1,6 +1,6 @@
-<article class="known-watching">
+<article class="known-listening">
             <h2 style="display: none" class="p-name">
-                Watched <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
+                Listened <?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?>
             </h2>
             
             <div class="p-item h-product">                    
@@ -28,22 +28,22 @@
                 ?>
                 <h2>
                     <?php
-                    if ($vars['object']->watchType == 'movie') {
+                    if ($vars['object']->listenType == 'song') {
                     ?>
-                    <i class="fa fa-film"></i>
+                    <i class="fa fa-music"></i>
                     <?php
-                    } else if ($vars['object']->watchType == 'tv') {
+                    } else if ($vars['object']->watchType == 'podcast') {
                     ?>
-                    <i class="fa fa-tv"></i>
+                    <i class="fa fa-rss"></i>
                     <?php
                     }
                     if (empty($vars['object']->getMediaURL())) {
                     ?>
-                    Watched <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
+                    Listened <span class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></span>
                     <?php
                     } else {
                     ?>
-                    Watched <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
+                    Listened <a href="<?= $vars['object']->getMediaURL() ?>" class="p-name"><?= htmlentities(strip_tags($vars['object']->getTitle()), ENT_QUOTES, 'UTF-8'); ?></a>
                     <?php
                     }
                     ?>
@@ -55,7 +55,7 @@
                 <?php
                 if (!empty($vars['object']->getPlayer())) {
                 ?>
-                <p style="font-style: italic; text-align: right;">Watched on <?= $vars['object']->getPlayer() ?></p>
+                <p style="font-style: italic; text-align: right;">Listened  on <?= $vars['object']->getPlayer() ?></p>
                 <?php
                 }
                 ?>                
