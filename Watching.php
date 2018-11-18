@@ -1,10 +1,10 @@
 <?php
 
-    namespace IdnoPlugins\Watching {
+    namespace IdnoPlugins\Listening {
 
         use Idno\Core\Autosave;
 
-        class Watching extends \Idno\Common\Entity
+        class Listening extends \Idno\Common\Entity
         {
 
             function getTitle()
@@ -28,9 +28,9 @@
                 return '';
             }
 
-            function getWatchType()
+            function getListenType()
             {
-                if (!empty($this->watchType)) return $this->watchType;
+                if (!empty($this->listenType)) return $this->listenType;
 
                 return '';
             }
@@ -66,15 +66,15 @@
             {
                 return array(
                     'type' => 'entry',
-                    'watch-type' => $this->getWatchType(),
+                    'watch-type' => $this->getListenType(),
                     'media-url' => $this->getMediaURL(),
                     'player' => $this->getPlayer()
                 );
             }
 
             /**
-             * Watching objects have type 'watching'
-             * @return 'watching'
+             * Watching objects have type 'listening'
+             * @return 'listening'
              */
             function getActivityStreamsObjectType()
             {
@@ -95,7 +95,7 @@
                     $this->body            = $body;
                     $this->title           = \Idno\Core\site()->currentPage()->getInput('title');
                     $this->player          = \Idno\Core\site()->currentPage()->getInput('player');
-                    $this->watchType       = \Idno\Core\site()->currentPage()->getInput('watchType');
+                    $this->watchType       = \Idno\Core\site()->currentPage()->getInput('listenType');
                     $this->mediaURL        = \Idno\Core\site()->currentPage()->getInput('mediaURL');
                     $access                = \Idno\Core\site()->currentPage()->getInput('access');
                     $this->setAccess($access);
