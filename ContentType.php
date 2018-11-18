@@ -1,14 +1,14 @@
 <?php
 
-    namespace IdnoPlugins\Watching {
+    namespace IdnoPlugins\Listening {
 
         class ContentType extends \Idno\Common\ContentType {
 
-            public $title = 'Watching';
-            public $category_title = 'Watching';
-            public $entity_class = 'IdnoPlugins\\Watching\\Watching';
+            public $title = 'Listening';
+            public $category_title = 'Listening';
+            public $entity_class = 'IdnoPlugins\\Listening\\Listening';
             public $logo = '<i class="icon-align-left"></i>';
-            public $indieWebContentType = array('watching');
+            public $indieWebContentType = array('listening');
 
         }
 
