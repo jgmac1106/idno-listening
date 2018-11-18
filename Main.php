@@ -1,16 +1,16 @@
 <?php
 
-    namespace IdnoPlugins\Watching {
+    namespace IdnoPlugins\Listening {
 
         class Main extends \Idno\Common\Plugin {
 
             function registerPages() {
-                \Idno\Core\site()->addPageHandler('/watching/edit/?', '\IdnoPlugins\Watching\Pages\Edit');
-                \Idno\Core\site()->addPageHandler('/watching/edit/([A-Za-z0-9]+)/?', '\IdnoPlugins\Watching\Pages\Edit');
-                \Idno\Core\site()->addPageHandler('/watching/delete/([A-Za-z0-9]+)/?', '\IdnoPlugins\Watching\Pages\Delete');
-                \Idno\Core\site()->addPageHandler('/watching/([A-Za-z0-9]+)/.*', '\Idno\Pages\Entity\View');
+                \Idno\Core\site()->addPageHandler('/listening/edit/?', '\IdnoPlugins\Listening\Pages\Edit');
+                \Idno\Core\site()->addPageHandler('/listening/edit/([A-Za-z0-9]+)/?', '\IdnoPlugins\Listening\Pages\Edit');
+                \Idno\Core\site()->addPageHandler('/listening/delete/([A-Za-z0-9]+)/?', '\IdnoPlugins\Listening\Pages\Delete');
+                \Idno\Core\site()->addPageHandler('/listening/([A-Za-z0-9]+)/.*', '\Idno\Pages\Entity\View');
                 
-                \Idno\Core\site()->addPageHandler('/watching/webhook/', '\IdnoPlugins\Watching\Pages\Endpoint', true);
+                \Idno\Core\site()->addPageHandler('/listening/webhook/', '\IdnoPlugins\Listening\Pages\Endpoint', true);
             }
 
             /**
@@ -28,9 +28,9 @@
                     $search = [];
                 }
 
-                if ($watchings = watching::get($search,[],9999,0)) {
-                    foreach($watchings as $watching) {
-                        if ($watching instanceof watching) {
+                if ($listenings = listening::get($search,[],9999,0)) {
+                    foreach($listenings as $listening) {
+                        if ($listening instanceof listening) {
                             if ($attachments = $watching->getAttachments()) {
                                 foreach($attachments as $attachment) {
                                     $total += $attachment['length'];
