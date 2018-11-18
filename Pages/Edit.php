@@ -1,6 +1,6 @@
 <?php
 
-    namespace IdnoPlugins\Watching\Pages {
+    namespace IdnoPlugins\Listening\Pages {
 
         use Idno\Core\Autosave;
 
@@ -12,20 +12,20 @@
 
                 // Are we loading an entity?
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listening\Listening::getByID($this->arguments[0]);
                 } else {
-                    $object = new \IdnoPlugins\Watching\Watching();
+                    $object = new \IdnoPlugins\Listening\Listening();
                 }
 
                 $t = \Idno\Core\site()->template();
                 $body = $t->__(array(
                     'object' => $object
-                ))->draw('entity/Watching/edit');
+                ))->draw('entity/Listening/edit');
 
                 if (empty($vars['object']->_id)) {
-                    $title = 'What are you watching?';
+                    $title = 'What is that sound?';
                 } else {
-                    $title = 'Edit what you watched';
+                    $title = 'Edit what you listened to';
                 }
 
                 if (!empty($this->xhr)) {
@@ -40,10 +40,10 @@
 
                 $new = false;
                 if (!empty($this->arguments)) {
-                    $object = \IdnoPlugins\Watching\Watching::getByID($this->arguments[0]);
+                    $object = \IdnoPlugins\Listening\Listening::getByID($this->arguments[0]);
                 }
                 if (empty($object)) {
-                    $object = new \IdnoPlugins\Watching\Watching();
+                    $object = new \IdnoPlugins\Listening\Listening();
                 }
 
                 if ($object->saveDataFromInput($this)) {
