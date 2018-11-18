@@ -64,7 +64,7 @@
                     
                     $_FILES['photo'] = $_FILES['thumb'];
 
-                    $contentType = new \IdnoPlugins\Watching\ContentType();
+                    $contentType = new \IdnoPlugins\Listening\ContentType();
                     
                     $entity = $contentType->createEntity();
                     $entity->setOwner('http://cleverdevil.io/profile/cleverdevil');
